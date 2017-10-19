@@ -134,7 +134,7 @@ class ChefSummaryView: BaseView {
         label.font = font
         label.textColor = color
         label.text = text
-        label.numberOfLines = 1
+        label.numberOfLines = 0
         label.sizeToFit()
     }
     

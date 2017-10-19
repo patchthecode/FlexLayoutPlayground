@@ -56,6 +56,7 @@ class ChefCollectionView: UICollectionView {
         register(ChefCollectionViewCell.self, forCellWithReuseIdentifier: identifier)
         delegate = self
         dataSource = self
+        
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.minimumLineSpacing = 0
             layout.minimumInteritemSpacing = 0
