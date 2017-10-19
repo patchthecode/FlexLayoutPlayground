@@ -9,7 +9,6 @@ import UIKit
 import FontAwesome_swift
 import FlexLayout
 import PinLayout
-import AlamofireImage
 
 
 class ChefSummaryView: BaseView {

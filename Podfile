@@ -6,9 +6,9 @@ target 'ddClient' do
   use_frameworks!
 
   # Pods for ddClient
-  pod 'Alamofire', '~> 4.4'
+
   pod 'Fakery', '~> 3.2'
-  pod 'AlamofireImage', '~> 3.3'
+  pod 'SnapKit', '~> 4.0'
   pod 'FontAwesome.swift', '~> 1.2'
   pod 'FlexLayout', '~> 1.1'
   pod 'PinLayout', '~> 1.3'
