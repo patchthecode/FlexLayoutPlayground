@@ -58,7 +58,6 @@ class ChefSummaryView: BaseView {
         
         setupLabel(label: companyName, text: "", font: .systemFont(ofSize: 25, weight: .bold))
         companyName.textColor = UIColor(colorWithHexValue: 0x56575b)
-        companyName.numberOfLines = 2
         
         setupLabel(label: distance, text: "",
                    color: UIColor(colorWithHexValue: 0xd87a80),
@@ -74,14 +73,14 @@ class ChefSummaryView: BaseView {
                     flex.addItem(closingTime)
                 }
                 flex.addItem().backgroundColor(.green).shrink(1).paddingHorizontal(5).marginLeft(10).define { flex in
-                        flex.addItem(commentCount).backgroundColor(.red).marginBottom(5)
-                        flex.addItem(priceLevel).backgroundColor(.red)
+                    flex.addItem(commentCount).backgroundColor(.red).marginBottom(5)
+                    flex.addItem(priceLevel).backgroundColor(.red)
                 }
             }            
             flex.addItem(mainImage).marginTop(20).aspectRatio(16/9)
             flex.addItem().direction(.row).backgroundColor(.green).marginTop(20).define { flex in
                 flex.addItem(companyName).width(80%)
-                flex.addItem(distance).width(20%).backgroundColor(.blue).alignItems(.end)
+                flex.addItem(distance).width(20%).backgroundColor(.blue)
             }
             flex.addItem(hashTags).marginTop(5)
             flex.addItem().height(1).marginTop(25).backgroundColor(.darkGray)
@@ -117,7 +116,7 @@ class ChefSummaryView: BaseView {
         mainImage.image = #imageLiteral(resourceName: "puppy")
         mainImage.flex.markDirty()
         
-        setupLabel(label: companyName, text: data.p9/*"A very long name for the restaurant test"*/, font: .systemFont(ofSize: 25, weight: .bold))
+        setupLabel(label: companyName, text: data.p9/*"A very long name for the restaurant test"*/, font: .systemFont(ofSize: 25, weight: .bold), numberOfLine: 0)
         companyName.flex.markDirty()
         
         setupLabel(label: distance, text: data.p10,
@@ -129,12 +128,11 @@ class ChefSummaryView: BaseView {
         hashTags.flex.markDirty()
     }
     
-    private func setupLabel(label: UILabel, text: String = "", color: UIColor = .black, font: UIFont = .systemFont(ofSize: 14.0)) {
+    private func setupLabel(label: UILabel, text: String = "", color: UIColor = .black, font: UIFont = .systemFont(ofSize: 14.0), numberOfLine: Int = 0) {
         label.font = font
         label.textColor = color
         label.text = text
-        label.numberOfLines = 0
-        label.sizeToFit()
+        label.numberOfLines = numberOfLine
     }
     
     override func layoutSubviews() {
