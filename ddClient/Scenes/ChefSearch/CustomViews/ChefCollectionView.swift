@@ -39,6 +39,7 @@ class ChefCollectionView: UICollectionView {
     var data: [ViewModel] = []
     weak var scrollDelegate: UIScrollViewDelegate?
     weak var actionDelegate: ChefCollectionViewAction?
+    private let cellTemplate = ChefCollectionViewCell()    
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -82,8 +83,8 @@ extension ChefCollectionView: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.size.width, height: 452)
-//        return UICollectionViewFlowLayoutAutomaticSize
+        cellTemplate.setup(with: data[indexPath.item])
+        return cellTemplate.sizeThatFits(CGSize(width: collectionView.bounds.width, height: .greatestFiniteMagnitude))
     }
 }
 
